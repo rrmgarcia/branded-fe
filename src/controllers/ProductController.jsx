@@ -50,7 +50,7 @@ const ScrapeWithProductController = () => {
     if (urlInput) {
       axios
         .get(
-          `http://localhost:3000/product/scrape/${encodeURIComponent(urlInput)}`
+          `https://branded-be.onrender.com/product/scrape/${encodeURIComponent(urlInput)}`
         )
         .then((response) => {
           const { title, imageSrcList } = response.data;

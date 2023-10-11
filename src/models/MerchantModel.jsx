@@ -3,7 +3,7 @@ class MerchantModel {
 
   async createOrUpdateMerchant(newMerchantProfile) {
     try {
-      const response = await fetch("http://localhost:3000/profile", {
+      const response = await fetch("https://branded-be.onrender.com/profile", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -36,7 +36,7 @@ class MerchantModel {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:3000/profile/merchant/${userId}`,
+        `https://branded-be.onrender.com/profile/merchant/${userId}`,
         {
           method: "GET",
           mode: "cors",
@@ -71,7 +71,7 @@ class MerchantModel {
   async delMerchant(userId) {
     console.log("userId was here", userId);
     try {
-      const response = await fetch(`http://localhost:3000/profile/merchant/${userId}`, {
+      const response = await fetch(`https://branded-be.onrender.com/profile/merchant/${userId}`, {
         method: "DELETE",
         mode: "cors",
         cache: "no-cache",
