@@ -1,0 +1,125 @@
+.main_bg {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  background-color: blue;
+  /* flex-direction: column; */
+  flex-wrap: nowrap;
+  justify-content: center;
+  text-align: center;
+  background-color: #f2f2f2;
+  /* background-position: 10em 10em; */
+  background-image: url("/src/assets/images/merchant_bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form > p:nth-child(1) {
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+.form {
+  background-color: white;
+  padding: 3em 0.5em;
+  /* border-radius: 10px; */
+  /* display: flex; */
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  border: none;
+  width: 30em;
+  height: 30em;
+  /* box-sizing: border-box; */
+}
+.create p {
+  display: inline-block;
+  font-weight: 500;
+  font-size: large;
+}
+
+.input {
+  padding: 1em;
+  border-radius: 0.3em;
+  background-color: #f4f4f4;
+  /* border-bottom: 2px solid green; */
+  width: 24em;
+  margin-bottom: 0.5em;
+  border: none;
+  color: #0c0d0d;
+
+  font-size: larger;
+}
+
+.username div {
+  color: red;
+}
+
+.input:focus {
+  outline: 1px solid #ec1e24;
+  /* border: 2px #ec1e24; */
+}
+
+/* input[type="input"] {
+  outline: none;
+  border: none;
+} */
+
+.password,
+.username {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2em;
+}
+
+.submit {
+  font-size: large;
+  margin-bottom: 2em;
+  background: #ec1e24;
+  width: 6em;
+  height: 2.5em;
+  /* padding: 1em 2em; */
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.submit:hover {
+  background-color: #e6e7e8;
+  color: #0c0d0d;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.button {
+  font-weight: 400;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: #ec1e24;
+  /* font-weight: 300; */
+}
+
+.login_welcome {
+  width: 30em;
+  height: 30em;
+  background-image: url(/src/assets/images/login_page.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.login_welcome a:hover {
+  cursor: pointer;
+}
+
+.login_bg {
+  display: flex;
+  box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 390px) {
+  .login_welcome {
+    /* visibility: hidden; */
+    display: none;
+  }
+}

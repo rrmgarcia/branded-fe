@@ -1,0 +1,93 @@
+.body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* background-color: blue; */
+}
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: #efefef;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 41em;
+  /* min-height: 800px; */
+  margin: 4em 0;
+  padding: 10px;
+  /* background-color: #e5f1ed; */
+  background-color: white;
+  border-radius: 10px;
+}
+
+hr {
+  border-top: 1px solid black;
+  width: 100%;
+}
+
+.labels {
+  /* height: 16px; */
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.account_info p,
+.password p {
+  margin-bottom: 0em;
+}
+
+.account_info input {
+  height: 3em;
+  border: none;
+  /* background-color: transparent; */
+  background-color: #efefef;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1em;
+  /* margin: 1em 0; */
+  margin-bottom: 1em;
+}
+
+.account_input,
+.password_input {
+  margin-top: 1em;
+}
+
+.password input {
+  border: none;
+  height: 3em;
+  /* background-color: transparent; */
+  background-color: #efefef;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+}
+
+.account_info input:focus,
+.password div input:focus {
+  border: none;
+  border-radius: red;
+}
+
+.settingsInput {
+  color: black;
+}
+
+.labels {
+  font-size: 16px;
+  /* margin: 1em 0; */
+  border-bottom: 2px solid rgb(205, 205, 205);
+}
+
+.password,
+.account_info {
+  margin-top: 1em;
+}
