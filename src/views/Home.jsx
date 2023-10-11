@@ -233,15 +233,13 @@ function Home(props) {
                     </div>
                   )
                 )}
-          
-            <>
+            {/* <>
               <p className={styles.product_group}>Health & Beauty</p>
               <p className={styles.product_group}>Accessories</p>
               <p className={styles.product_group}>Food</p>
               <p className={styles.product_group}>Clothing</p>
               <p className={styles.product_group}>Clothing</p>
-            </>
-            
+            </> */}
           </div>
         </div>
 
