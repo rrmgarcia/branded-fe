@@ -50,7 +50,7 @@ const ScrapeWithProductController = () => {
     if (urlInput) {
       axios
         .get(
-          `https://branded-be.onrender.com/product/scrape/${encodeURIComponent(urlInput)}`
+          `http://localhost:3000/product/scrape/${encodeURIComponent(urlInput)}`
         )
         .then((response) => {
           const { title, imageSrcList } = response.data;
@@ -100,7 +100,7 @@ const ScrapeWithProductController = () => {
         name: productName,
         link: urlInput,
         category: category,
-        image: imageSrcList !== "" ? imageSrcList : productImgUrl,
+        image: imageSrcList !== "" ? imageSrcList : imgUrl,
       };
 
       // Check if the user has an existing product collection
@@ -115,10 +115,6 @@ const ScrapeWithProductController = () => {
           productDetails: [newProductDetails],
         });
         toast.success("Product added!");
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
       } else {
         // If the user's product collection exists, update it
 
@@ -128,10 +124,6 @@ const ScrapeWithProductController = () => {
           });
 
         toast.success("Product added!");
-
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
 
         if (!updatedProductCollection) {
           setError(
@@ -178,7 +170,7 @@ const ScrapeWithProductController = () => {
     listAll(ref(imageDB, `${userId}/productUploads`)).then((imgs) => {
       imgs.items.forEach((val) => {
         getDownloadURL(val).then((url) => {
-          setProductImgUrl((data)=> [...data, url]);
+          setProductImgUrl(url);
         });
       });
     });

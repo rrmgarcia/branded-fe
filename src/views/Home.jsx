@@ -6,19 +6,34 @@ import stylesThemeTwo from "../themes/Theme_Two.module.css";
 
 import styles from "../themes/Default.module.css";
 
+// import styles from "../styles/Home.module.css";
+// import styles from "../themes/Default.module.css";
+// import styles from "../themes/Theme_One.module.css";
+// import styles from "../themes/Theme_Two.module.css";
+// import styles from "../themes/Theme_Three.module.css";
+
 import NavBarTop from "../components/NavBarTop";
 import NavBarBottom from "../components/NavBarBottom";
 import Slides from "../components/Slides";
+// import ModalBottom from "../components/ModalBottom";
 
 import productModel from "../models/ProductModel";
 import UploadProductImage from "../components/UploadProductImage";
 import { ProfileContext } from "../models/providers/ProfileProvider";
 import MerchantController from "../controllers/MerchantController";
-import { useBuilder } from "../models/providers/BuilderProvider";
 
 function Home(props) {
   const {
-
+    handleProductImgUpload,
+    handleProductImgSave,
+    handleSubmit,
+    category,
+    handleCategoryChange,
+    product,
+    link,
+    productName,
+    handleNameChange,
+    imageSrcList,
     openModal,
   } = props;
 
@@ -27,11 +42,7 @@ function Home(props) {
   const [builderAndProduct, setBuilderAndProduct] = useContext(ProfileContext);
   const [currentTheme, setCurrentTheme] = useState("default");
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const builderData = useBuilder();
-
-  const mockData = { ...builderData };
-  const mockBgImge = mockData.builderData.storedBgImage;
-  console.log(mockData.builderData.storedBgImage);
+  console.log(currentTheme);
   useEffect(() => {
     // Check if userProfile and themeStyle are available
     if (
@@ -53,6 +64,8 @@ function Home(props) {
 
   const backgroundImageUrl =
     builderAndProduct.userProfile && builderAndProduct.userProfile.bgImage;
+
+  console.log();
 
   const scrollToCategory = (category) => {
     const productSection = document.querySelector(
@@ -97,18 +110,14 @@ function Home(props) {
       setSelectedProduct(null);
     }
   };
-  const containerStyle = {
-    backgroundImage: mockBgImge
-      ? `url(${mockBgImge})`
-      : `url(${backgroundImageUrl})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-  };
 
-  // mockData.builderData.storedBgImage;
+  // const backgroundImageUrl =
+  //   builderAndProduct.userProfile && builderAndProduct.userProfile.bgImage;
+
+  console.log(backgroundImageUrl);
+
   return (
-    <div style={containerStyle} className={selectedStyles.body}>
+    <div className={selectedStyles.body}>
       <div className={selectedStyles.home_container}>
         <NavBarTop />
         <div className={selectedStyles.home_body}>
@@ -233,72 +242,75 @@ function Home(props) {
                     </div>
                   )
                 )}
-            {/* <>
-              <p className={styles.product_group}>Health & Beauty</p>
-              <p className={styles.product_group}>Accessories</p>
-              <p className={styles.product_group}>Food</p>
-              <p className={styles.product_group}>Clothing</p>
-              <p className={styles.product_group}>Clothing</p>
-            </> */}
+          </div>
+
+          <div className={selectedStyles.group}>
+            <button
+              type="button"
+              onClick={openModal}
+              className={selectedStyles.button}
+            >
+              Add Your Product here +
+            </button>
+          </div>
+
+          <div className={selectedStyles.product_container}>
+            <h4>Products</h4>
+            <input type="text" placeholder="Search product name.." />
+            {sortedCategories.map((category) => (
+              <div key={category} className={selectedStyles.category_container}>
+                <div className={selectedStyles.category_header}>
+                  <h4>{category}</h4>
+                </div>
+
+                <div className={selectedStyles.product_list}>
+                  {builderAndProduct.userProducts.productDetails
+                    .filter(
+                      (product) =>
+                        product.category === category ||
+                        (!product.category && category === "Uncategorized")
+                    )
+                    .map((product, index) => (
+                      <div className={selectedStyles.product_item} key={index}>
+                        <div className={selectedStyles.card}>
+                          <a
+                            href={product.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <div className={selectedStyles.card_image}>
+                              <div
+                                className={selectedStyles.dropdown}
+                                onClick={(e) => {
+                                  e.preventDefault(); // Prevent the link from being triggered
+                                  handleDeleteProduct(product.productId);
+                                }}
+                              >
+                                <div className="material-symbols-outlined">
+                                  more_horiz
+                                </div>
+                              </div>
+                              <img
+                                className={selectedStyles.card_image}
+                                src={product.image}
+                                alt="Product"
+                              />
+                            </div>
+                          </a>
+                          <div className={selectedStyles.card_name}>
+                            {product.name}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                </div>
+                {/* <hr className={selectedStyles.separator} /> */}
+              </div>
+            ))}
           </div>
         </div>
-
-        <div className={selectedStyles.group}>
-          <button
-            type="button"
-            onClick={openModal}
-            className={selectedStyles.button}
-          >
-            Add Your Product here +
-          </button>
-        </div>
-
-        <div className={selectedStyles.product_container}>
-          <h4>Products</h4>
-          <input type="text" placeholder="Search product name.." />
-          {sortedCategories.map((category) => (
-            <div key={category} className={selectedStyles.category_container}>
-              <div className={selectedStyles.group}>
-                <h4>{category}</h4>
-              </div>
-
-              <div className={selectedStyles.products}>
-                {builderAndProduct.userProducts.productDetails
-                  .filter(
-                    (product) =>
-                      product.category === category ||
-                      (!product.category && category === "Uncategorized")
-                  )
-                  .map((product, index) => (
-                    <div className={selectedStyles.card} key={index}>
-                      <div
-                        className={styles.close}
-                        onClick={(e) => {
-                          e.preventDefault(); // Prevent the link from being triggered
-                          handleDeleteProduct(product.productId);
-                        }}
-                      ></div>
-
-                      <div className={selectedStyles.card_frame}>
-                        <img
-                          src={product.image}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={selectedStyles.card_image}
-                        ></img>
-                      </div>
-                      <div className={selectedStyles.card_name}>
-                        {product.name}
-                      </div>
-                    </div>
-                  ))}
-              </div>
-          
-            </div>
-          ))}
-        </div>
+        <NavBarBottom />
       </div>
-      <NavBarBottom />
     </div>
   );
 }

@@ -1,32 +1,36 @@
 .modalContainer {
-  top: 50%;
-  left: 50%;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  display: inline-flex;
-  position: fixed;
-  background-color: #ffffffff;
-  box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
-  padding: 10px;
-  border-radius: 10px;
-  overflow: auto;
-  z-index: 11;
-  height: 30rem;
-  width: 30rem;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    position: fixed;
+    background-color: #ffffffff;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    border-radius: 10px;
+    overflow: auto;
+    z-index: 11;
+}
+
+.modalContainer {
+    height: 30rem;
+    width: 30rem;
 }
 
 .modal-closeIcon {
-  position: absolute;
-  right: 5px;
-  top: 5px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
 }
 
 .overlay {
-  position: fixed;
-  background: rgba(57, 57, 57, 0.5);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+    position: fixed;
+    background: rgba(57, 57, 57, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }

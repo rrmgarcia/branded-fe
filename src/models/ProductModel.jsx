@@ -3,7 +3,7 @@ class ProductModel {
 
   async createProduct(product) {
     try {
-      const response = await fetch("https://branded-be.onrender.com/product", {
+      const response = await fetch("http://localhost:3000/product", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -34,7 +34,7 @@ class ProductModel {
     console.log("test", updatedProductDetails);
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://branded-be.onrender.com/product/${userId}`, {
+      const response = await fetch(`http://localhost:3000/product/${userId}`, {
         method: "PUT",
         mode: "cors",
         cache: "no-cache",
@@ -65,7 +65,7 @@ class ProductModel {
   async findProductsByUserId(userId) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://branded-be.onrender.com/product/${userId}`, {
+      const response = await fetch(`http://localhost:3000/product/${userId}`, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
@@ -97,7 +97,7 @@ class ProductModel {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `https://branded-be.onrender.com/product/${productId}`,
+        `http://localhost:3000/product/${productId}`,
         {
           method: "DELETE",
           mode: "cors",

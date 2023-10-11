@@ -3,7 +3,7 @@ class BuilderProfileModel {
 
   async createBuilderProfile(newBuilderProfile) {
     try {
-      const response = await fetch("https://branded-be.onrender.com/builder", {
+      const response = await fetch("http://localhost:3000/builder", {
         method: "POST",
         mode: "cors",
         cache: "no-cache",
@@ -35,7 +35,7 @@ class BuilderProfileModel {
   async findBuilderProfileById(id) {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`https://branded-be.onrender.com/builder/${userId}`, {
+      const response = await fetch(`http://localhost:3000/builder/${userId}`, {
         method: "GET",
         mode: "cors",
         cache: "no-cache",
@@ -65,7 +65,7 @@ class BuilderProfileModel {
   async updateBuilderProfileById(userId, updatedBuilderProfile) {
     console.log("FE Model:", updatedBuilderProfile);
     try {
-      const response = await fetch(`https://branded-be.onrender.com/builder/${userId}`, {
+      const response = await fetch(`http://localhost:3000/builder/${userId}`, {
         method: "PUT",
         mode: "cors",
         cache: "no-cache",
@@ -97,7 +97,7 @@ class BuilderProfileModel {
   async deleteBuilderProfileById(profileId) {
     try {
       const response = await fetch(
-        `https://branded-be.onrender.com/builder/${profileId}`,
+        `http://localhost:3000/builder/${profileId}`,
         {
           method: "DELETE",
           mode: "cors",

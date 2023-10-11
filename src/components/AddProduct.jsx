@@ -23,65 +23,48 @@ function AddProduct(props) {
   return (
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
-        <p>Add Product by Link</p>
-
+        <p>Add new product</p>
+        <hr />
         <div className={styles.group}>
-          <p>Product Link</p>
+          <p>Category</p>
+          <input type="text" value={category} onChange={handleCategoryChange} />
+
+          <p>Link to Product</p>
           <input
             type="text"
-            placeholder="Input product link here..."
             value={urlInput}
             onChange={(e) => {
               setUrlInput(e.target.value);
               handleUrlInputChange(e.target.value); // Call the prop function
             }}
           />
-          <p>Product Image</p>
-          <div className={styles.image_preview}>
-            <img
-              className={styles.product_image}
-              src={imageSrcList}
-              alt="Product Image Preview"
-            />
-          </div>
 
-          <div className={styles.linkProduct}>
-            <div className={styles.name}>
-              <p>Product Name</p>
-              <input
-                type="text"
-                placeholder="Input product name here..."
-                value={productName}
-                onChange={(e) => {
-                  props.handleProductNameChange(e.target.value);
-                }}
-              />
-            </div>
-
-            <div className={styles.productCategory}>
-              <p>Category</p>
-              <input
-                type="text"
-                placeholder="Input category here..."
-                value={category}
-                onChange={handleCategoryChange}
-              />
-            </div>
-          </div>
+          <p>Name</p>
+          <input
+            type="text"
+            value={productName}
+            onChange={(e) => {
+              props.handleProductNameChange(e.target.value);
+            }}
+          />
         </div>
       </form>
-      <button type="button" onClick={handleSubmit}>
-        Save Product Link
-      </button>
-      <p className={styles.or}>or</p>
       <div className={styles.save_button}>
-        <p>Upload Product </p>
+        <p>Product Image</p>
+        <div className={styles.image_preview}>
+          <img
+            className={styles.product_image}
+            src={imageSrcList}
+            alt="Product Image Preview"
+          />
+        </div>
 
         <input type="file" onChange={handleProductImgUpload} />
         <div className={styles.buttons}>
-          <button type="submit" onClick={handleProductImgSave}>
-            Upload Image
+          <button type="button" onClick={handleProductImgSave}>
+            Save new Product
           </button>
+          <button type="submit">Done Upload</button>
         </div>
       </div>
     </div>

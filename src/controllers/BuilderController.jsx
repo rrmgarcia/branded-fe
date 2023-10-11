@@ -11,8 +11,6 @@ import { v4 } from "uuid";
 import BuilderProfileModel from "../models/BuilderProfileModel";
 import Builder from "../views/Builder";
 import toast, { Toaster } from "react-hot-toast";
-import { useBuilder } from "../models/providers/BuilderProvider";
-
 
 const BuilderController = () => {
   const [updatedBgandCarouselImgs, setUpdatedBgandCarouselImgs] = useState({
@@ -24,11 +22,6 @@ const BuilderController = () => {
   const [carouselImgs, setCarouselImgs] = useState([]);
   const [carouselImgsUrl, setCarouselImgsUrl] = useState([]);
   const [updatedProfile, setUpdatedProfile] = useState(null);
-  const {
-    
-    updateStoredBgImage,
-    updateStoredBgCarouselImgs,
-  } = useBuilder();
 
   const handleBgImgUpload = (e) => {
     e.preventDefault();
@@ -44,7 +37,6 @@ const BuilderController = () => {
         uploadBytes(imgRef, bgImage).then((val) => {
           getDownloadURL(val.ref).then((url) => {
             setBgImgUrl(url);
-            updateStoredBgImage(url);
           });
         });
       }
@@ -114,7 +106,6 @@ const BuilderController = () => {
         uploadBytes(imgRef, carouselImgs).then((value) => {
           getDownloadURL(value.ref).then((url) => {
             setCarouselImgsUrl((data) => [...data, url]);
-            updateStoredBgCarouselImgs([...carouselImgs, url]);
           });
         });
       }

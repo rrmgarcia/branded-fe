@@ -1,29 +1,25 @@
-
+/* p {
+  font-family: "roboto";
+} */
 
 .modalContainer {
   position: fixed;
   width: 450px;
-  max-height: 40%;
-  top: 66%;
-  left: 50%;
-  margin-top: -15%; 
-  margin-left: -225px; 
+  /* height: 80%; */
+  /* margin-left: -10px; */
+  bottom: 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: white;
   z-index: 10;
   box-shadow: 0px -11px 50px -40px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  overflow: scroll;
-  
-  -webkit-animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  justify-content: center;
+  -webkit-animation: scale-in-ver-bottom 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   padding-bottom: 2em;
 }
-
-
-
-
 
 @keyframes scale-in-ver-bottom {
   0% {
@@ -37,6 +33,11 @@
     opacity: 1;
   }
 }
+/* .modal-closeIcon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+} */
 
 .overlay {
   position: fixed;
