@@ -4,7 +4,6 @@ const ProfileContext = createContext();
 
 const ProfileProvider = (props) => {
   const [builderAndProduct, setBuilderAndProduct] = useState("");
-  // console.log("contextItems:",builderAndProduct)
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
