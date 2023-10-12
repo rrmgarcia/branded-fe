@@ -121,7 +121,6 @@ const ScrapeWithProductController = () => {
         }, 1000);
       } else {
         // If the user's product collection exists, update it
-
         const updatedProductCollection =
           await productModel.updateProductDetails(userId, {
             ...newProductDetails,
@@ -140,7 +139,6 @@ const ScrapeWithProductController = () => {
           return;
         }
       }
-
       if (existingUserProducts) {
         setError(null);
       } else {
