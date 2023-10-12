@@ -15,6 +15,7 @@ import Merchant from "./views/Merchantpage";
 import NotFoundPage from "./views/NotFoundPage";
 import SettingsController from "./controllers/SettingsController";
 import toast, { Toaster } from "react-hot-toast";
+import { BuilderProvider } from "./models/providers/BuilderProvider";
 
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
@@ -63,12 +64,14 @@ const router = createBrowserRouter([
 
 function App() {
   return (
+    <BuilderProvider>
     <ProfileProvider>
       <AuthProvider>
         <Toaster position="top-center" toastOptions={{ duration: 2000 }} />
         <RouterProvider router={router} />
       </AuthProvider>
     </ProfileProvider>
+    </BuilderProvider>
   );
 }
 

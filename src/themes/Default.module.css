@@ -235,16 +235,12 @@ button {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   height: auto;
   padding: 10px 0;
   gap: 5px;
   white-space: nowrap;
-}
-
-.card {
-  height: 200px;
 }
 
 .card_image {
@@ -275,7 +271,13 @@ button {
 }
 
 .card {
-  /*height: 200px; */
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  height: 260px;
   overflow: hidden;
   position: relative;
   /* float: left; */
@@ -295,6 +297,9 @@ button {
 .card_frame {
   margin-bottom: 5px;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .card_frame:hover {
@@ -340,7 +345,7 @@ button {
 .card_name {
   text-wrap: wrap;
   /* background-color: red; */
-  height: 50px;
+  /* height: 50px; */
   width: 11em;
   text-align: center;
   margin: auto;
@@ -381,4 +386,28 @@ button {
   position: relative;
   /* top: 0em; */
   font-weight: 500;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-image: url(../assets/images/cross.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 1em;
+  width: 1em;
+  z-index: 1;
+}
+
+.close:hover {
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+
+  fill: white;
+  border: 1px white;
+  text-shadow: #555;
 }

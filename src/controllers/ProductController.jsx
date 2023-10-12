@@ -100,7 +100,7 @@ const ScrapeWithProductController = () => {
         name: productName,
         link: urlInput,
         category: category,
-        image: imageSrcList !== "" ? imageSrcList : imgUrl,
+        image: imageSrcList !== "" ? imageSrcList : productImgUrl,
       };
 
       // Check if the user has an existing product collection
@@ -115,6 +115,10 @@ const ScrapeWithProductController = () => {
           productDetails: [newProductDetails],
         });
         toast.success("Product added!");
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       } else {
         // If the user's product collection exists, update it
 
@@ -124,6 +128,10 @@ const ScrapeWithProductController = () => {
           });
 
         toast.success("Product added!");
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
 
         if (!updatedProductCollection) {
           setError(
@@ -170,7 +178,7 @@ const ScrapeWithProductController = () => {
     listAll(ref(imageDB, `${userId}/productUploads`)).then((imgs) => {
       imgs.items.forEach((val) => {
         getDownloadURL(val).then((url) => {
-          setProductImgUrl(url);
+          setProductImgUrl((data)=> [...data, url]);
         });
       });
     });

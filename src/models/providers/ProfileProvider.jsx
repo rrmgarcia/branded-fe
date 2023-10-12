@@ -8,7 +8,7 @@ const ProfileProvider = (props) => {
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
-    fetch(`https://branded-be.onrender.com/profile/${userId}`)
+    fetch(`http://localhost:3000/profile/${userId}`)
       .then((response) => response.json())
       .then((data) => setBuilderAndProduct(data))
       .catch((error) =>

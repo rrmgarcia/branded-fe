@@ -9,7 +9,7 @@ const MerchantDetailsProvider = ({ children }) => {
   const fetchMerchantDetails = async (merchantTitle) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/merchant/${merchantTitle}`
+        `https://branded-be.onrender.com/merchant/${merchantTitle}`
       );
       if (response.status === 404) {
         console.log("Merchant not found");
