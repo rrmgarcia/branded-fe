@@ -17,10 +17,7 @@ import MerchantController from "../controllers/MerchantController";
 import { useBuilder } from "../models/providers/BuilderProvider";
 
 function Home(props) {
-  const {
-
-    openModal,
-  } = props;
+  const { openModal } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [trigger, setTrigger] = useState(0);
@@ -233,7 +230,7 @@ function Home(props) {
                     </div>
                   )
                 )}
-          
+
             <>
               <p className={styles.product_group}>Health & Beauty</p>
               <p className={styles.product_group}>Accessories</p>
@@ -241,7 +238,6 @@ function Home(props) {
               <p className={styles.product_group}>Clothing</p>
               <p className={styles.product_group}>Clothing</p>
             </>
-            
           </div>
         </div>
 
@@ -282,12 +278,18 @@ function Home(props) {
                       ></div>
 
                       <div className={selectedStyles.card_frame}>
-                        <img
-                          src={product.image}
+                        <a
+                          href={product.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={selectedStyles.card_image}
-                        ></img>
+                        >
+                          <img
+                            src={product.image}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={selectedStyles.card_image}
+                          ></img>
+                        </a>
                       </div>
                       <div className={selectedStyles.card_name}>
                         {product.name}
@@ -295,7 +297,6 @@ function Home(props) {
                     </div>
                   ))}
               </div>
-          
             </div>
           ))}
         </div>
